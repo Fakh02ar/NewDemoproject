@@ -18,7 +18,7 @@ export function PopoverContent({ children, className = "", ...props }) {
         align="center"
         sideOffset={4}
         avoidCollisions={false} // Disable auto repositioning
-        className={`z-50 w-72 rounded-md border border-gray-200 bg-black p-4 shadow-md ${className}`}
+        className={`z-50 w-96 mt-5 border border-gray-500 bg-black p-4 shadow-md ${className}`}
         {...props}
       >
         {children}
@@ -26,5 +26,3 @@ export function PopoverContent({ children, className = "", ...props }) {
     </PopoverPrimitive.Portal>
   );
 }
-
-

@@ -2,9 +2,9 @@
 
 import * as React from "react"
 import { addDays, format } from "date-fns"
-import { Calendar as CalendarIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Calendar } from "@/components/ui/calendar"
+import calender from './assets/calender.svg'
 import {
   Popover,
   PopoverContent,
@@ -12,10 +12,11 @@ import {
 } from "@/components/ui/popover"
 import { cn } from "@/lib/utils"
 
-const Picker = (className) => {
+const Picker = ({ className }) => {
+  const today = new Date()
   const [date, setDate] = React.useState({
-    from: new Date(2022, 0, 20),
-    to: addDays(new Date(2022, 0, 20), 20),
+    from: today,
+    to: addDays(today, 20),
   })
 
   return (
@@ -30,15 +31,17 @@ const Picker = (className) => {
               !date && "text-muted-foreground"
             )}
           >
-            <CalendarIcon />
+          <img src={calender} alt="" className="w-5 h-5 brightness-0 invert" />
+
+
             {date?.from ? (
               date.to ? (
                 <>
-                  {format(date.from, "LLL dd, y")} -{" "}
-                  {format(date.to, "LLL dd, y")}
+                  {format(date.from, "MM /dd / y")} -{" "}
+                  {format(date.to, "MM / dd / y")}
                 </>
               ) : (
-                format(date.from, "LLL dd, y")
+                format(date.from, "MM dd, y")
               )
             ) : (
               <span>Pick a date</span>
@@ -59,4 +62,5 @@ const Picker = (className) => {
     </div>
   )
 }
+
 export default Picker
