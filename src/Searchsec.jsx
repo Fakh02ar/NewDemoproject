@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import seat from "./assets/seat.svg";
 import Picker from "./Picker";
 import { ChevronDown } from "lucide-react";
@@ -8,7 +8,7 @@ export default function TicketSearchBar() {
   const [seats, setSeats] = useState(2);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [tempSeats, setTempSeats] = useState(seats);
-  const dropdownRef = useRef(null); // 🆕 Reference to dropdown container
+  const dropdownRef = useRef(null);
 
   const applySeats = () => {
     setSeats(tempSeats);
@@ -20,7 +20,7 @@ export default function TicketSearchBar() {
     setDropdownOpen(false);
   };
 
-  // 🆕 Close dropdown when clicked outside
+  // Close dropdown when clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -39,6 +39,11 @@ export default function TicketSearchBar() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownOpen]);
+
+  // Memoized seat display
+  const seatDisplay = useMemo(() => {
+    return `${seats} ${seats === 1 ? "Seat" : "Seats"}`;
+  }, [seats]);
 
   return (
     <div className="max-w-[1100px] pt-6 mt-8 px-1 sm:px-6 lg:px-8 mx-auto flex mb-20">
@@ -62,17 +67,15 @@ export default function TicketSearchBar() {
 
         {/* Custom Seats Dropdown */}
         <div className="relative" ref={dropdownRef}>
-        
           <div
             onClick={() => setDropdownOpen(!dropdownOpen)}
             className="flex justify-between items-center px-4 py-4 xl:w-[242px] lg:w-[160px] gap-5 cursor-pointer"
           >
             <div className="flex gap-2">
-                <img src={seat} alt="seat" />
-            <span>{seats} {seats === 1 ? "Seat" : "Seats"}</span>
-            
+              <img src={seat} alt="seat" />
+              <span>{seatDisplay}</span>
             </div>
-            <ChevronDown  className="w-4 text-gray-500"/>
+            <ChevronDown className="w-4 text-gray-500" />
           </div>
 
           {dropdownOpen && (
