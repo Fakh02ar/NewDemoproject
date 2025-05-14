@@ -7,7 +7,7 @@ export default function CardWithForm() {
       {featuredShows.map((show) => (
         <Card
           key={show.id}
-          className="bg-black rounded-[20px] text-white overflow-hidden shadow-lg transform transition-transform duration-500 hover:scale-105 cursor-pointer flex flex-col h-[420px] border-0"
+          className="bg-black rounded-[20px] pb-6 py-0 text-white overflow-hidden shadow-lg transform transition-transform duration-500 hover:scale-105 cursor-pointer flex flex-col h-[420px] border-0"
         >
           <img
             src={show.img_src}
@@ -41,6 +41,7 @@ export default function CardWithForm() {
           </CardContent>
         </Card>
       ))}
+      
     </>
   );
 }
