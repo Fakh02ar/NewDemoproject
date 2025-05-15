@@ -1,11 +1,16 @@
 import React from 'react'
-import Imgsec from '@/Imgcard'
+import Imgsec from './Imgcard'
+
+
+
+
 import { featuredShows } from './lib/show'
+
 
 const Cardsection = () => {
   // Remove duplicates using 'slug' as the unique key
   const uniqueShowsMap = new Map()
-  featuredShows.forEach(show => {
+  featuredShows.forEach(show => { 
     if (!uniqueShowsMap.has(show.slug)) {
       uniqueShowsMap.set(show.slug, show)
     }

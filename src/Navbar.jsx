@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
-import Logo from "../src/assets/ticket-logo.avif"
+import Logo from "../src/assets/vegas-ticket-centre.avif"
 import Faq from "../src/assets/faq.svg"
 import UserIcon from "../src/assets/user.svg"
 import img1 from "../src/assets/img1.svg"
@@ -38,7 +38,7 @@ const Navbar = () => {
   return (
     <header className="bg-[#141414] text-white text-sm  shadow-xs">
       {/* Top Support Bar */}
-      <div className="pt-4 xl:pt-[1.5rem] pb-2">
+      <div className="pt-4 xl:pt-[1.5rem] pb-2 px-3 md:px-0">
         <div className="xl:max-w-[1360px] lg:max-w-[1000px] mx-auto md:px-4 lg:px-3 xl:px-4 flex flex-wrap items-center gap-[0.75rem]">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,15 +61,15 @@ const Navbar = () => {
       </div>
 
       {/* Main Navigation */}
-      <div className={`xl:max-w-[1360px] lg:max-w-[1000px] mx-auto px-3 mr-3 flex items-center border-gray-900 border ${isOpen ? "" : "border-b-[#FFFFFF26]"} pb-8 lg:gap-0 md:justify-between md:pr-6 lg:pr-0 mt-8`}>
+      <div className={`xl:max-w-[1360px] lg:max-w-[1000px] mx-auto px-3 mr-3 flex items-center border-gray-900 border ${isOpen ? "" : "border-b-[#FFFFFF26]"} pb-8 lg:gap-0 justify-between md:pr-6 lg:pr-0 mt-8`}>
         {/* Logo & Desktop Nav */}
         <div className="flex gap-10">
           <div className="flex items-center">
-            <img src={Logo || "/placeholder.svg"} alt="Logo" className="h-auto w-[140px]" />
+            <a href="/home"><img src={Logo || "/placeholder.svg"} alt="Logo" className="h-auto w-[140px]" /></a>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden max-w-[950px] lg:flex lg:flex-wrap gap-2 tracking-widest items-center relative ml-5">
+          <div className="hidden max-w-[950px] lg:flex lg:flex-wrap tracking-widest items-center relative ml-5 -pb-8 -pt-8 mt-3 pb-3">
             {[ 
               { key: "shows", label: "SHOWS", items: ["Latest Shows", "Shows Tonight", "Week Days", "Months"] },
               { key: "mustsee", label: "Must See Shows", items: ["Must See Picks", "Tonight's Highlights", "VIP Access", "Top Rated"] },
@@ -116,7 +116,7 @@ const Navbar = () => {
         </div>
 
         {/* Right Icons */}
-        <div className="flex items-center gap-8">
+        <div className="flex items-center gap-8 lg:pr-6 xl:pr-0">
           <img src={Faq || "/placeholder.svg"} alt="FAQ" className="w-[25px]" />
           <img src={UserIcon || "/placeholder.svg"} alt="User" className="w-[25px]" />
           <img
