@@ -1,13 +1,11 @@
 import React from "react";
-
 import './index.css'; 
 
 import Navbar from "./Navbar";
 import Text from "./Text";
-import Picker from "./Picker";
 import  Searchsec  from "./Searchsec";
-
-
+import Cardsection from "./Cardsection";
+import Footer from "./Footer";
 
 
 
@@ -22,8 +20,8 @@ function App() {
    <Navbar />
    <Text />
    <Searchsec />
-   
- 
+   <Cardsection />
+   <Footer />
  
     </div>
   );
